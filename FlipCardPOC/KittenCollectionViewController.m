@@ -7,20 +7,17 @@
 //
 
 #import "KittenCollectionViewController.h"
+#import "KittenDetailViewController.h"
 
 @interface KittenCollectionViewController ()
 @property (nonatomic, weak) NSArray *kittens;
-@property (nonatomic, strong) UIView *kittenDetailView;
-@property (nonatomic, strong) UIView *detailView;
-@property (nonatomic) BOOL isKittenDetail;
+@property (nonatomic, strong) KittenDetailViewController *detailViewController;
 @end
 
 @implementation KittenCollectionViewController
 
 - (void)viewDidLoad {
     self.kittens = [NSArray arrayWithObjects:@"kitten1.jpg", @"kitten2.jpg", @"kitten3.jpg", @"kitten4.jpg", nil];
-    self.kittenDetailView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 165, 165)];
-    self.kittenDetailView.backgroundColor = [UIColor whiteColor];
 }
 
 //Kitten Collection View DataSource Methods
@@ -32,6 +29,7 @@
     static NSString *identifier = @"Cell";
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
     UIImageView *kittenImageView = (UIImageView *)[cell viewWithTag:100];
     kittenImageView.image = [UIImage imageNamed:[self.kittens objectAtIndex:indexPath.row]];
     
@@ -40,7 +38,9 @@
 
 //Kitten Collection View Delegate Methods
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    
+    self.detailViewController = (KittenDetailViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"KittenDetailViewController"];
 //    switch (indexPath.row) {
 //        case 0:
 //            self.kittenDetailViewController.kittenDetailLabel.text = @"KITTENS ARE AWESOME";
@@ -58,24 +58,19 @@
 //            break;
 //    }
     
-    if (self.isKittenDetail == YES) {
-        [UIView transitionFromView:self.kittenDetailView
-                            toView:[self.collectionView cellForItemAtIndexPath:indexPath].contentView
+        [UIView transitionFromView:[self.collectionView cellForItemAtIndexPath:indexPath].contentView
+                            toView:self.detailViewController.view
                           duration:2
                            options:UIViewAnimationOptionTransitionFlipFromLeft
                         completion:^(BOOL finished) {
-                            self.isKittenDetail = NO;
-                            
+                            [UIView animateWithDuration:2
+                                             animations:^{
+                                                 
+                                             } completion:nil];
                         }];
-    } else {
-        [UIView transitionFromView:[self.collectionView cellForItemAtIndexPath:indexPath].contentView
-                        toView:self.kittenDetailView
-                      duration:2
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    completion:^(BOOL finished) {
-                        self.isKittenDetail = YES;
-                    }];
-    }
+    
+
+
 }
 
 

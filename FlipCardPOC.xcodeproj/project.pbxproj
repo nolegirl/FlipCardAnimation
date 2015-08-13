@@ -18,7 +18,7 @@
 		1F378C841B7BDCAD00F43036 /* kitten2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F378C801B7BDCAD00F43036 /* kitten2.jpg */; };
 		1F378C851B7BDCAD00F43036 /* kitten3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F378C811B7BDCAD00F43036 /* kitten3.jpg */; };
 		1F378C861B7BDCAD00F43036 /* kitten4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1F378C821B7BDCAD00F43036 /* kitten4.jpg */; };
-		1F7C634D1B7D0096006380F5 /* KittenCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C634C1B7D0096006380F5 /* KittenCollectionViewCell.m */; };
+		1F7C63501B7D0165006380F5 /* KittenDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7C634F1B7D0165006380F5 /* KittenDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +49,8 @@
 		1F378C801B7BDCAD00F43036 /* kitten2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten2.jpg; sourceTree = "<group>"; };
 		1F378C811B7BDCAD00F43036 /* kitten3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten3.jpg; sourceTree = "<group>"; };
 		1F378C821B7BDCAD00F43036 /* kitten4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = kitten4.jpg; sourceTree = "<group>"; };
-		1F7C634B1B7D0096006380F5 /* KittenCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittenCollectionViewCell.h; sourceTree = "<group>"; };
-		1F7C634C1B7D0096006380F5 /* KittenCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KittenCollectionViewCell.m; sourceTree = "<group>"; };
+		1F7C634E1B7D0165006380F5 /* KittenDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KittenDetailViewController.h; sourceTree = "<group>"; };
+		1F7C634F1B7D0165006380F5 /* KittenDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KittenDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +96,8 @@
 				1F378C581B7BD9D500F43036 /* AppDelegate.m */,
 				1F378C7C1B7BDC1200F43036 /* KittenCollectionViewController.h */,
 				1F378C7D1B7BDC1200F43036 /* KittenCollectionViewController.m */,
-				1F7C634B1B7D0096006380F5 /* KittenCollectionViewCell.h */,
-				1F7C634C1B7D0096006380F5 /* KittenCollectionViewCell.m */,
+				1F7C634E1B7D0165006380F5 /* KittenDetailViewController.h */,
+				1F7C634F1B7D0165006380F5 /* KittenDetailViewController.m */,
 				1F378C601B7BD9D500F43036 /* Main.storyboard */,
 				1F378C631B7BD9D500F43036 /* Images.xcassets */,
 				1F378C651B7BD9D500F43036 /* LaunchScreen.xib */,
@@ -240,10 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7C63501B7D0165006380F5 /* KittenDetailViewController.m in Sources */,
 				1F378C7E1B7BDC1200F43036 /* KittenCollectionViewController.m in Sources */,
 				1F378C591B7BD9D500F43036 /* AppDelegate.m in Sources */,
 				1F378C561B7BD9D500F43036 /* main.m in Sources */,
-				1F7C634D1B7D0096006380F5 /* KittenCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

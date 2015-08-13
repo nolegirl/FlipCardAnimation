@@ -33,7 +33,7 @@
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" id="55w-4T-4gX" customClass="KittenCollectionViewCell">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="Cell" id="55w-4T-4gX">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -59,6 +59,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3DG-Kc-JVS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="498" y="62"/>
+        </scene>
+        <!--Kitten Detail View Controller-->
+        <scene sceneID="yq2-Kj-Vxe">
+            <objects>
+                <viewController storyboardIdentifier="KittenDetailViewController" id="XvQ-G1-VHu" customClass="KittenDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S4X-Mp-29Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="3BD-Ja-1Ag"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sCg-xZ-amn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hu2-Qi-aJC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1137" y="60"/>
         </scene>
     </scenes>
 </document>
