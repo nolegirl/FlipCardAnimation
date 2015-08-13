@@ -57,32 +57,24 @@
     
 //Flip from imageview to detail view
     if (cell.flipped == NO) {
-        [UIView transitionFromView:cell.imageView
-                            toView:cell.detailView
-                          duration:2
+        [UIView transitionWithView:cell.contentView
+                          duration:2.0
                            options:UIViewAnimationOptionTransitionFlipFromLeft
-                        completion:^(BOOL finished) {
-                            [cell setFlipped:YES];
-                            
+                        animations:^{
+                            [cell.contentView addSubview:cell.detailView];
+                        } completion:^(BOOL finished) {
+                            cell.flipped = YES;
                         }];
     } else {
 //Flip back from detail view to imageview
-        [UIView transitionFromView:cell.detailView
-                        toView:cell.imageView
-                      duration:2
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    completion:^(BOOL finished) {
-                        cell.flipped = NO;
-                    }];
-//
-//        [UIView transitionWithView:cell.detailView
-//                          duration:2.0
-//                           options:UIViewAnimationOptionTransitionFlipFromLeft
-//                        animations:^{
-//                            [cell.imageView setFrame:CGRectMake(0, 0, 165, 165)];
-//                        } completion:^(BOOL finished) {
-//                            cell.flipped = NO;
-//                        }];
+        [UIView transitionWithView:cell.contentView
+                          duration:2.0
+                           options:UIViewAnimationOptionTransitionFlipFromRight
+                        animations:^{
+                            [cell.contentView addSubview:cell.imageView];
+                        } completion:^(BOOL finished) {
+                            cell.flipped = NO;
+                        }];
     }
 }
 
