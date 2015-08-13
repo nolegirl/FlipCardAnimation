@@ -8,6 +8,7 @@
 
 #import "KittenCollectionViewController.h"
 #import "KittenDetailViewController.h"
+#import "KittenCollectionViewCell.h"
 
 @interface KittenCollectionViewController ()
 @property (nonatomic, weak) NSArray *kittens;
@@ -25,20 +26,19 @@
     return self.kittens.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (KittenCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"Cell";
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    KittenCollectionViewCell *cell = (KittenCollectionViewCell*)[collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    UIImageView *kittenImageView = (UIImageView *)[cell viewWithTag:100];
-    kittenImageView.image = [UIImage imageNamed:[self.kittens objectAtIndex:indexPath.row]];
+    cell.imageView.image = [UIImage imageNamed:[self.kittens objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
 //Kitten Collection View Delegate Methods
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    KittenCollectionViewCell *cell = (KittenCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     
     self.detailViewController = (KittenDetailViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"KittenDetailViewController"];
 //    switch (indexPath.row) {
@@ -57,32 +57,24 @@
 //        default:
 //            break;
 //    }
-//        [UIView transitionFromView:cell.contentView
-//                            toView:self.detailViewController.view
-//                          duration:2
-//                           options:UIViewAnimationOptionTransitionFlipFromLeft
-//                        completion:^(BOOL finished) {
-//                            [self.collectionView.collectionViewLayout invalidateLayout];
-//                            [UIView animateWithDuration:2.0
-//                                             animations:^{
-//                                                 cell.frame = CGRectMake(0, 50, self.collectionView.frame.size.width, 200);
-//                                                 [cell bringSubviewToFront:self.view];
-//                                             } completion:nil];
-//                        }];
-    [UIView animateWithDuration:2.0
-                     animations:^{
-                         [UIView transitionFromView:cell.contentView
-                                             toView:self.detailViewController.view
-                                           duration:2.0
-                                            options:UIViewAnimationOptionTransitionFlipFromRight
-                                         completion:nil];
-                         cell.frame = CGRectMake(0, 50, self.collectionView.frame.size.width, 200);
-                         [cell bringSubviewToFront:self.view];
-                     } completion:nil];
     
-
-
+    if (cell.flipped == NO) {
+        [UIView transitionFromView:cell.imageView
+                            toView:cell.detailView
+                          duration:2
+                           options:UIViewAnimationOptionTransitionFlipFromLeft
+                        completion:^(BOOL finished) {
+                            [cell setFlipped:YES];
+                        }];
+    } else {
+        [UIView transitionFromView:cell.detailView
+                        toView:cell.imageView
+                      duration:2
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    completion:^(BOOL finished) {
+                        cell.flipped = NO;
+                    }];
+    }
 }
-
 
 @end

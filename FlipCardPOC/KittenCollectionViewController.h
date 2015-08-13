@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol KittenCollectionViewControllerDelegate <NSObject>
-
-
-@end
+//
+//@class KittenCollectionViewCell;
+//@protocol KittenCollectionViewControllerDelegate <NSObject>
+//- (void)flipCell;
+//@end
 
 @interface KittenCollectionViewController : UICollectionViewController
-
-@property (nonatomic, weak) id<KittenCollectionViewControllerDelegate>delegate;
-
+//@property (nonatomic, weak) id<KittenCollectionViewController>delegate;
 @end
