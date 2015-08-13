@@ -57,17 +57,28 @@
 //        default:
 //            break;
 //    }
-    
-        [UIView transitionFromView:[self.collectionView cellForItemAtIndexPath:indexPath].contentView
-                            toView:self.detailViewController.view
-                          duration:2
-                           options:UIViewAnimationOptionTransitionFlipFromLeft
-                        completion:^(BOOL finished) {
-                            [UIView animateWithDuration:2
-                                             animations:^{
-                                                 
-                                             } completion:nil];
-                        }];
+//        [UIView transitionFromView:cell.contentView
+//                            toView:self.detailViewController.view
+//                          duration:2
+//                           options:UIViewAnimationOptionTransitionFlipFromLeft
+//                        completion:^(BOOL finished) {
+//                            [self.collectionView.collectionViewLayout invalidateLayout];
+//                            [UIView animateWithDuration:2.0
+//                                             animations:^{
+//                                                 cell.frame = CGRectMake(0, 50, self.collectionView.frame.size.width, 200);
+//                                                 [cell bringSubviewToFront:self.view];
+//                                             } completion:nil];
+//                        }];
+    [UIView animateWithDuration:2.0
+                     animations:^{
+                         [UIView transitionFromView:cell.contentView
+                                             toView:self.detailViewController.view
+                                           duration:2.0
+                                            options:UIViewAnimationOptionTransitionFlipFromRight
+                                         completion:nil];
+                         cell.frame = CGRectMake(0, 50, self.collectionView.frame.size.width, 200);
+                         [cell bringSubviewToFront:self.view];
+                     } completion:nil];
     
 
 
