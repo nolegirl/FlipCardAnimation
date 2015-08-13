@@ -7,12 +7,10 @@
 //
 
 #import "KittenCollectionViewController.h"
-#import "KittenDetailViewController.h"
 #import "KittenCollectionViewCell.h"
 
 @interface KittenCollectionViewController ()
 @property (nonatomic, weak) NSArray *kittens;
-@property (nonatomic, strong) KittenDetailViewController *detailViewController;
 @end
 
 @implementation KittenCollectionViewController
@@ -40,7 +38,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     KittenCollectionViewCell *cell = (KittenCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     
-    self.detailViewController = (KittenDetailViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"KittenDetailViewController"];
 //    switch (indexPath.row) {
 //        case 0:
 //            self.kittenDetailViewController.kittenDetailLabel.text = @"KITTENS ARE AWESOME";
@@ -58,6 +55,7 @@
 //            break;
 //    }
     
+//Flip from imageview to detail view
     if (cell.flipped == NO) {
         [UIView transitionFromView:cell.imageView
                             toView:cell.detailView
@@ -65,8 +63,10 @@
                            options:UIViewAnimationOptionTransitionFlipFromLeft
                         completion:^(BOOL finished) {
                             [cell setFlipped:YES];
+                            
                         }];
     } else {
+//Flip back from detail view to imageview
         [UIView transitionFromView:cell.detailView
                         toView:cell.imageView
                       duration:2
@@ -74,6 +74,15 @@
                     completion:^(BOOL finished) {
                         cell.flipped = NO;
                     }];
+//
+//        [UIView transitionWithView:cell.detailView
+//                          duration:2.0
+//                           options:UIViewAnimationOptionTransitionFlipFromLeft
+//                        animations:^{
+//                            [cell.imageView setFrame:CGRectMake(0, 0, 165, 165)];
+//                        } completion:^(BOOL finished) {
+//                            cell.flipped = NO;
+//                        }];
     }
 }
 
