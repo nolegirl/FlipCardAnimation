@@ -13,4 +13,5 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIView *detailView;
 @property (nonatomic) BOOL flipped;
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
 @end

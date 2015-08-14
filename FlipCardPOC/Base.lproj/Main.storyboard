@@ -40,18 +40,48 @@
                                     <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fg1-3B-w5i">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg1-3B-w5i">
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jZ-39-fnr">
+                                                    <rect key="frame" x="10" y="10" width="145" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="3jZ-39-fnr" secondAttribute="trailing" constant="10" id="Dpb-pg-AOd"/>
+                                                <constraint firstItem="3jZ-39-fnr" firstAttribute="top" secondItem="fg1-3B-w5i" secondAttribute="top" constant="10" id="Ji7-IV-Us4"/>
+                                                <constraint firstItem="3jZ-39-fnr" firstAttribute="leading" secondItem="fg1-3B-w5i" secondAttribute="leading" constant="10" id="JnM-DD-x4X"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3jZ-39-fnr" secondAttribute="trailing" constant="10" id="m5r-vi-BZP"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="m5r-vi-BZP"/>
+                                                </mask>
+                                            </variation>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTK-64-HSF">
+                                        <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BTK-64-HSF">
                                             <rect key="frame" x="0.0" y="0.0" width="165" height="165"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fg1-3B-w5i" secondAttribute="bottom" id="5iX-s3-1Da"/>
+                                    <constraint firstItem="fg1-3B-w5i" firstAttribute="top" secondItem="BTK-64-HSF" secondAttribute="top" id="8UG-n6-Vyd"/>
+                                    <constraint firstAttribute="trailing" secondItem="fg1-3B-w5i" secondAttribute="trailing" id="8bR-dT-xMl"/>
+                                    <constraint firstItem="fg1-3B-w5i" firstAttribute="bottom" secondItem="BTK-64-HSF" secondAttribute="bottom" id="LUW-mk-SWg"/>
+                                    <constraint firstItem="fg1-3B-w5i" firstAttribute="trailing" secondItem="BTK-64-HSF" secondAttribute="trailing" id="XPb-op-6Rb"/>
+                                    <constraint firstItem="fg1-3B-w5i" firstAttribute="leading" secondItem="55w-4T-4gX" secondAttribute="leading" id="eoN-XK-LBj"/>
+                                    <constraint firstItem="fg1-3B-w5i" firstAttribute="leading" secondItem="BTK-64-HSF" secondAttribute="leading" id="j6h-5v-mRa"/>
+                                    <constraint firstItem="fg1-3B-w5i" firstAttribute="top" secondItem="55w-4T-4gX" secondAttribute="top" id="kfD-22-yOe"/>
+                                </constraints>
                                 <size key="customSize" width="165" height="165"/>
                                 <connections>
+                                    <outlet property="detailLabel" destination="3jZ-39-fnr" id="rwH-Ee-JhD"/>
                                     <outlet property="detailView" destination="fg1-3B-w5i" id="pSR-gb-jFw"/>
                                     <outlet property="imageView" destination="BTK-64-HSF" id="Wv5-rg-Nop"/>
                                 </connections>
