@@ -14,4 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIView *detailView;
 @property (nonatomic) BOOL flipped;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *phoneLabel;
 @end

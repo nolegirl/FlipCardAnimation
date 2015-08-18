@@ -9,7 +9,7 @@
 #import "KittenCollectionViewController.h"
 #import "KittenCollectionViewCell.h"
 
-@interface KittenCollectionViewController ()
+@interface KittenCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, weak) NSArray *kittens;
 @end
 
@@ -40,25 +40,36 @@
     
 //Flip from imageview to detail view
     if (cell.flipped == NO) {
-        [UIView transitionWithView:cell.contentView
-                          duration:.5
-                           options:UIViewAnimationOptionTransitionFlipFromLeft
-                        animations:^{
-                            [cell.contentView addSubview:cell.detailView];
-                            [self setDetailLabelForCell:cell atIndexPath:indexPath];
-                        } completion:^(BOOL finished) {
-                            cell.flipped = YES;
-                        }];
+        [UIView animateWithDuration:2.0
+                         animations:^{
+                             
+                             [UIView transitionWithView:cell.contentView
+                                               duration:2.0
+                                                options:UIViewAnimationOptionTransitionFlipFromRight
+                                             animations:^{
+                                                 [cell.contentView addSubview:cell.detailView];
+                                                 cell.frame = CGRectMake(75, 50, self.collectionView.frame.size.width /1.6 , 300);
+                                                 [self.collectionView bringSubviewToFront:cell.contentView];
+                                                 [self setDetailLabelForCell:cell atIndexPath:indexPath];
+                                                 
+                                                 cell.flipped = YES;
+                                             }
+                                             completion:nil];
+                         }];
     } else {
-//Flip back from detail view to imageview
-        [UIView transitionWithView:cell.contentView
-                          duration:.5
-                           options:UIViewAnimationOptionTransitionFlipFromRight
-                        animations:^{
-                            [cell.contentView addSubview:cell.imageView];
-                        } completion:^(BOOL finished) {
-                            cell.flipped = NO;
-                        }];
+        //Flip back from detail view to imageview
+        [UIView animateWithDuration:2.0
+                         animations:^{
+                             [UIView transitionWithView:cell.contentView
+                                               duration:2.0
+                                                options:UIViewAnimationOptionTransitionFlipFromLeft
+                                             animations:^{
+                                                 [cell.contentView addSubview:cell.imageView];
+                                                 cell.frame = CGRectMake(200, 185, 165, 165);
+                                                 cell.flipped = NO;
+                                             }
+                                             completion:nil];
+                         }];
     }
 }
 
@@ -75,6 +86,8 @@
             break;
         case 3:
             cell.detailLabel.text = @"SUCK IT COLIN";
+            cell.emailLabel.text = @"This is where someone's email would go";
+            cell.phoneLabel.text = @"Here's where some other crap about people that someone would want to know";
             break;
         default:
             break;

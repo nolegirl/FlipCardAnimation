@@ -49,13 +49,31 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nz6-mT-MsP">
+                                                    <rect key="frame" x="8" y="61" width="149" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rho-wO-FUh">
+                                                    <rect key="frame" x="8" y="130" width="149" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Rho-wO-FUh" secondAttribute="bottom" constant="20" id="8Wz-SM-8iE"/>
+                                                <constraint firstAttribute="trailing" secondItem="nz6-mT-MsP" secondAttribute="trailing" constant="8" id="9b8-Vi-Tny"/>
                                                 <constraint firstAttribute="trailing" secondItem="3jZ-39-fnr" secondAttribute="trailing" constant="10" id="Dpb-pg-AOd"/>
+                                                <constraint firstItem="Rho-wO-FUh" firstAttribute="leading" secondItem="fg1-3B-w5i" secondAttribute="leading" constant="8" id="Hzo-Pu-0Ww"/>
                                                 <constraint firstItem="3jZ-39-fnr" firstAttribute="top" secondItem="fg1-3B-w5i" secondAttribute="top" constant="10" id="Ji7-IV-Us4"/>
                                                 <constraint firstItem="3jZ-39-fnr" firstAttribute="leading" secondItem="fg1-3B-w5i" secondAttribute="leading" constant="10" id="JnM-DD-x4X"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rho-wO-FUh" secondAttribute="trailing" constant="8" id="S28-2I-pLG"/>
+                                                <constraint firstItem="nz6-mT-MsP" firstAttribute="leading" secondItem="fg1-3B-w5i" secondAttribute="leading" constant="8" id="TQf-gF-Uiy"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3jZ-39-fnr" secondAttribute="trailing" constant="10" id="m5r-vi-BZP"/>
+                                                <constraint firstItem="nz6-mT-MsP" firstAttribute="top" secondItem="3jZ-39-fnr" secondAttribute="bottom" constant="30" id="zgk-Ma-aco"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -83,7 +101,9 @@
                                 <connections>
                                     <outlet property="detailLabel" destination="3jZ-39-fnr" id="rwH-Ee-JhD"/>
                                     <outlet property="detailView" destination="fg1-3B-w5i" id="pSR-gb-jFw"/>
+                                    <outlet property="emailLabel" destination="nz6-mT-MsP" id="QB6-BG-nKD"/>
                                     <outlet property="imageView" destination="BTK-64-HSF" id="Wv5-rg-Nop"/>
+                                    <outlet property="phoneLabel" destination="Rho-wO-FUh" id="Ge3-Mx-ale"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
