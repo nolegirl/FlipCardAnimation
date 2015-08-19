@@ -40,11 +40,11 @@
     
 //Flip from imageview to detail view
     if (cell.flipped == NO) {
-        [UIView animateWithDuration:2.0
+        [UIView animateWithDuration:.5
                          animations:^{
                              
                              [UIView transitionWithView:cell.contentView
-                                               duration:2.0
+                                               duration:.5
                                                 options:UIViewAnimationOptionTransitionFlipFromRight
                                              animations:^{
                                                  [cell.contentView addSubview:cell.detailView];
@@ -58,10 +58,10 @@
                          }];
     } else {
         //Flip back from detail view to imageview
-        [UIView animateWithDuration:2.0
+        [UIView animateWithDuration:.5
                          animations:^{
                              [UIView transitionWithView:cell.contentView
-                                               duration:2.0
+                                               duration:.5
                                                 options:UIViewAnimationOptionTransitionFlipFromLeft
                                              animations:^{
                                                  [cell.contentView addSubview:cell.imageView];
