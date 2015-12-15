@@ -46,7 +46,7 @@
                          animations:^{
                              
                              [UIView transitionWithView:cell.contentView
-                                               duration:0.5f
+                                               duration:0.0f
                                                 options:UIViewAnimationOptionTransitionFlipFromRight
                                              animations:^{
                                                  [cell.imageView removeFromSuperview];
@@ -64,7 +64,7 @@
         [UIView animateWithDuration:0.5f
                          animations:^{
                              [UIView transitionWithView:cell.contentView
-                                               duration:0.5f
+                                               duration:0.0f
                                                 options:UIViewAnimationOptionTransitionFlipFromLeft
                                              animations:^{
                                                  cell.frame = self.originalCellPosition;
