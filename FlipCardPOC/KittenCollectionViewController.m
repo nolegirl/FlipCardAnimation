@@ -11,6 +11,7 @@
 
 @interface KittenCollectionViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, weak) NSArray *kittens;
+@property (nonatomic) CGRect originalCellPosition;
 @end
 
 @implementation KittenCollectionViewController
@@ -40,16 +41,18 @@
     
 //Flip from imageview to detail view
     if (cell.flipped == NO) {
-        [UIView animateWithDuration:.5
+        self.originalCellPosition = cell.frame;
+        [UIView animateWithDuration:0.5f
                          animations:^{
                              
                              [UIView transitionWithView:cell.contentView
-                                               duration:.5
+                                               duration:0.5f
                                                 options:UIViewAnimationOptionTransitionFlipFromRight
                                              animations:^{
+                                                 [cell.imageView removeFromSuperview];
                                                  [cell.contentView addSubview:cell.detailView];
+                                                 [self.collectionView addSubview:cell];
                                                  cell.frame = CGRectMake(75, 50, self.collectionView.frame.size.width /1.6 , 300);
-                                                 [self.collectionView bringSubviewToFront:cell.contentView];
                                                  [self setDetailLabelForCell:cell atIndexPath:indexPath];
                                                  
                                                  cell.flipped = YES;
@@ -58,14 +61,17 @@
                          }];
     } else {
         //Flip back from detail view to imageview
-        [UIView animateWithDuration:.5
+        [UIView animateWithDuration:0.5f
                          animations:^{
                              [UIView transitionWithView:cell.contentView
-                                               duration:.5
+                                               duration:0.5f
                                                 options:UIViewAnimationOptionTransitionFlipFromLeft
                                              animations:^{
+                                                 cell.frame = self.originalCellPosition;
+                                                 [cell.detailView removeFromSuperview];
                                                  [cell.contentView addSubview:cell.imageView];
-                                                 cell.frame = CGRectMake(200, 185, 165, 165);
+                                                 cell.contentView.frame = CGRectMake(0, 0, 165, 165);
+                                                 cell.imageView.frame = CGRectMake(0, 0, 165, 165);
                                                  cell.flipped = NO;
                                              }
                                              completion:nil];
@@ -85,7 +91,7 @@
             cell.detailLabel.text = @"KITTEH GO MEOW";
             break;
         case 3:
-            cell.detailLabel.text = @"SUCK IT COLIN";
+            cell.detailLabel.text = @"KITTEH!";
             cell.emailLabel.text = @"This is where someone's email would go";
             cell.phoneLabel.text = @"Here's where some other crap about people that someone would want to know";
             break;
